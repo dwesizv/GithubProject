@@ -15,6 +15,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{ asset('assets/style/styles.css') }}" rel="stylesheet" />
+        @yield('css')
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -30,19 +31,22 @@
                         <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{ { route('aboutNombre') } }">About 1</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{ { url('aboutRuta') } }">About 2</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{ { action([App\Http\Controllers\MainController::class, 'aboutMetodo']) } }">About 3</a></li> -->
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="https://ieszaidinvergeles.org">IES ZV</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" target="izv" href="https://ieszaidinvergeles.org">IES ZV</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{ route('portfolio') }}">Portfolio</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{ route('about') }}">About</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="{{ route('array') }}">Array</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Masthead-->
+         @yield('before-content')
         <header class="masthead bg-primary text-white text-center">
             @yield('content')
             <!-- directiva de blade (@WORD) que crea un referencia que cuando herede puedo rellenar -->
         </header>
         <!-- Portfolio Section-->
-        
+        @yield('after-content')
         <!-- About Section-->
         
         <!-- Contact Section-->
@@ -89,6 +93,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="{{ asset('assets/script/scripts.js') }}"></script>
+        @yield('script')
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
