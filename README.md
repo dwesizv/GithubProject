@@ -1,8 +1,8 @@
 ## Github Project
 
-Bla bla bla ...
+Descripción del proyecto.
 
-<img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status">
+<img src="src/example.png" alt="Example">
 
 Pasos a seguir para recuperar el proyecto en local
 
