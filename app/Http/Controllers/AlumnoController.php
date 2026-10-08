@@ -11,7 +11,7 @@ class AlumnoController extends Controller
 {
     public function create(): View {
         //
-        return view('index', []);
+        return view('alumno.create', []);
     }
     
     public function destroy(Alumno $alumno): RedirectResponse {
@@ -21,7 +21,7 @@ class AlumnoController extends Controller
         
     public function edit(Alumno $alumno): View {
         //
-        return view('index', []);
+        return view('alumno.edit', []);
     }
 
     public function index(): View {
@@ -34,9 +34,21 @@ class AlumnoController extends Controller
         return view('index', []);
     }
         
-    public function store(Request $request): RedirectResponse {
+    /*public function store(Request $request): RedirectResponse {
         //
         return redirect()->route('index');
+    }*/
+    function store(Request $request) {
+        //dd($request->all());
+        $alumno = new Alumno($request->all());
+        /*$alumno->nombre = $request->nombre;
+        $alumno->apellidos = $request->apellidos;
+        $alumno->genero = $request->genero;
+        $alumno->fnac = $request->fnac;
+        $alumno->nacceso = $request->nacceso;*/
+        $alumno->save();
+        //dd($alumno);
+        echo 'parece que todo ha ido bien.';
     }
 
     public function update(Request $request, Alumno $alumno): RedirectResponse {
