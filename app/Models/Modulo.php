@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Modulo extends Model
 {
@@ -14,4 +15,8 @@ class Modulo extends Model
         'horas',
         'creditos',
     ];
+
+    public function matriculas(): HasMany {
+        return $this->hasMany(Matricula::class);
+    }
 }

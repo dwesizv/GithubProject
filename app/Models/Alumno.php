@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Alumno extends Model
 {
@@ -14,4 +15,8 @@ class Alumno extends Model
     
     //campos que hay que rellenar antes de guardar un objeto en la base de datos
     protected $fillable = ['nombre', 'apellidos', 'fnac', 'genero', 'nacceso'];
+
+    public function matriculas(): HasMany {
+        return $this->hasMany(Matricula::class);
+    }
 }

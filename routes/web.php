@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\MatriculaController;
 use App\Http\Controllers\ModuloController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,4 @@ Route::get('alumno/{alumno}', [AlumnoController::class, 'show'])->name('alumno.s
 Route::delete('alumno/{alumno}', [AlumnoController::class, 'destroy'])->name('alumno.destroy');*/
 Route::resource('alumno', AlumnoController::class);
 Route::resource('modulo', ModuloController::class);
+Route::resource('matricula', MatriculaController::class);
