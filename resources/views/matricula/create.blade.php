@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container">
-
     <div class="row">
         <div class="col-md-6 mx-auto">
             <h2>Curso escolar: {{ $curso_escolar ?? 'sin definir' }}</h2>

@@ -23,5 +23,6 @@ Route::put('alumno/{alumno}', [AlumnoController::class, 'update'])->name('alumno
 Route::get('alumno/{alumno}', [AlumnoController::class, 'show'])->name('alumno.show');
 Route::delete('alumno/{alumno}', [AlumnoController::class, 'destroy'])->name('alumno.destroy');*/
 Route::resource('alumno', AlumnoController::class);
+Route::get('alumno/{alumno}/matricular', [AlumnoController::class, 'matricular'])->name('alumno.matricular');
 Route::resource('modulo', ModuloController::class);
 Route::resource('matricula', MatriculaController::class);

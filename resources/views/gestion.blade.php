@@ -8,6 +8,7 @@
         <a href="{{ route('modulo.create') }}" class="btn btn-secondary mb-3">Crear Módulo</a>
         <a href="{{ route('alumno.index') }}" class="btn btn-secondary mb-3">Ver Alumnos</a>
         <a href="{{ route('modulo.index') }}" class="btn btn-secondary mb-3">Ver Módulos</a>
+        <a href="{{ route('matricula.index') }}" class="btn btn-secondary mb-3">Ver Matrículas</a>
         <hr>
     </div>
 @endsection

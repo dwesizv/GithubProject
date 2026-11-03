@@ -41,6 +41,7 @@
                                 <input type="submit" value="Delete" class="btn btn-secondary">
                                 <!--<button type="submit" class="btn btn-secondary">Delete</button>-->
                             </form>
+                            <a href="{{ route('alumno.matricular', $alumno) }}" class="btn btn-secondary">Matrículas</a>
                         </td>
                     </tr>
                 @endforeach
