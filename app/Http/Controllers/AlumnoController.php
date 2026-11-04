@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alumno;
+use App\Models\Matricula;
 use App\Models\Modulo;
 use \Exception;
 use Illuminate\Database\UniqueConstraintViolationException;
@@ -76,10 +77,21 @@ class AlumnoController extends Controller
     }
     
     public function matricular(Alumno $alumno): View {
+        $matriculas = Matricula::where('alumno_id', '=', $alumno->id)->where('curso', '=', $this->getCurso())->get();
+        //$matriculas = Matricula::where('alumno_id', $alumno->id)->where('curso', $this->getCurso())->get();
+        $matriculasSimplificadas = [];
+        foreach($matriculas as $matricula) {
+            $matriculasSimplificadas[$matricula->modulo_id] = $matricula->modulo_id;
+        }
+        //$matriculas = Matricula::where('alumno_id', '=', $alumno->id)->where('curso', '=', $this->getCurso())->pluck('modulo_id');
+        //$matriculasSimplificadas = $matriculas->toArray();
+        //dd([$matriculasSimplificadas, $matriculas]);
         return view('alumno.matricular', [
-            'alumno'        => $alumno,
-            'curso_escolar' => $this->getCursoEscolar(),
-            'modulos'       => Modulo::pluck('nombre', 'id'),
+            'alumno'            => $alumno,
+            'curso_escolar'     => $this->getCursoEscolar(),
+            'matriculas'        => $matriculasSimplificadas,
+            'modulos'           => Modulo::pluck('nombre', 'id'),
+            'modulos_completos' => Modulo::orderBy('nombre', 'asc')->get(),
         ]);
     }
 
